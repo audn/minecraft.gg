@@ -9,9 +9,9 @@
     "fix:tailwind-css-class-order": "rustywind --write .",
     "fix": "npm run fix:tailwind-css-class-order",
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
+    "start": "serve ./out",
     "export": "npm run build && next export",
-    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
