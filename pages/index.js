@@ -37,7 +37,7 @@ function Index() {
         <div className="mt-12 xl:mt-0 select-none w-full xl:w-1/2 align-middle items-center justify-center">
           <div className="bg-default-600 px-5 py-5 rounded-lg">
             {/* SkyBlock*/}
-            <div className="bg-default-100 rounded-lg mb-3">
+            <div className="bg-default-100 rounded-lg">
               <div className="flex items-center justify-center px-4 py-4">
                 <div className="w-10 mr-6">
                   <img src="grass_block.png" />
