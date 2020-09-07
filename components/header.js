@@ -43,7 +43,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <header className="bg-default-500">
+      <header className="bg-default-500 hidden md:block">
         <div className="container mx-auto flex">
           {nav.map(({ title, route }, i) => (
             <Link href={route} key={i}>
@@ -54,13 +54,13 @@ function Header() {
           ))}
           <div className="flex ml-auto">
             <a
-              className="py-6 px-6 bg-default-400 text-white text-center w-56 hover:underline cursor-pointer"
+              className="py-6 px-6 bg-default-400 text-white text-center sm:w-56 hover:underline cursor-pointer"
               href="https://twitter.com/tryminecraftgg"
               target="_blank"
             >
               <div>
-                <i className="fab fa-twitter mr-3" />
-                Follow us
+                <i className="fab fa-twitter sm:mr-3" />
+                <span className="hidden sm:inline"> Follow us</span>
               </div>
             </a>
           </div>
