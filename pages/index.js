@@ -11,8 +11,8 @@ got('https://api.minetools.eu/ping/skyblock.minecraft.gg/8141').then((res) => {
 
 function Index() {
   return (
-    <div className="container mx-auto">
-      <div className="block lg:flex lg:space-x-12">
+    <div className="container mx-auto ">
+      <div className="block xl:flex xl:space-x-12">
         <div className="w-full align-middle items-center justify-center">
           <div className="bg-default-blue rounded-tl-lg rounded-tr-lg">
             <h1 className="text-bold font-inter text-white font-bold px-12 text-xl py-8">
@@ -34,7 +34,7 @@ function Index() {
             get involved early!
           </div>
         </div>
-        <div className="mt-12 lg:mt-0 select-none w-full lg:w-1/2 align-middle items-center justify-center">
+        <div className="mt-12 xl:mt-0 select-none w-full xl:w-1/2 align-middle items-center justify-center">
           <div className="bg-default-600 px-5 py-5 rounded-lg">
             {/* SkyBlock*/}
             <div className="bg-default-100 rounded-lg mb-3">
@@ -49,17 +49,15 @@ function Index() {
                     Loading..
                   </h3>
                   */}
-                  Coming soon!
                 </div>
                 <div className="flex ml-auto">
-                  <div className="bg-default-300 rounded-lg px-6 py-3 text-center cursor-not-allowed hover:bg-default-300">
-                    :(
+                  <div className="bg-default-300 rounded-lg px-6 py-3 text-center  hover:bg-default-300">
+                    mc.minecraft.gg
                   </div>
                 </div>
               </div>
             </div>
-            {/*/// SkyBlock end*/}
-            {/* KitPvP*/}
+            {/* 
             <div className="bg-default-400 rounded-lg mb-3">
               <div className="flex items-center justify-center px-4 py-4">
                 <div className="w-10 mr-6">
@@ -76,8 +74,6 @@ function Index() {
                 </div>
               </div>
             </div>
-            {/*/// KitPvP end*/}
-            {/* Factions*/}
             <div className="bg-default-400 rounded-lg">
               <div className="flex items-center justify-center px-4 py-4">
                 <div className="w-10 mr-6">
@@ -94,7 +90,7 @@ function Index() {
                 </div>
               </div>
             </div>
-            {/*/// Factions end*/}
+                    */}
           </div>
         </div>
       </div>

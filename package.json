@@ -27,8 +27,7 @@
   "dependencies": {
     "next": "9.5.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "sweetalert2": "^9.17.1"
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "autoprefixer": "9.8.6",
