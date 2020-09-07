@@ -14,7 +14,11 @@ function Footer() {
         </li>
 
         <li>
-          <a target="_blank" className="mr-12 cursor-pointer">
+          <a
+            target="_blank"
+            href="https://twitter.com/messages/compose?recipient_id=1972901604"
+            className="mr-12 cursor-pointer"
+          >
             Contact / Feedback
           </a>{' '}
         </li>

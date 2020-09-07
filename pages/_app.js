@@ -14,6 +14,7 @@ class MyApp extends App {
       <Layout props={pageProps}>
         {' '}
         <Head>
+          <title>Minecraft.gg</title>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" />
           <script
             src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
