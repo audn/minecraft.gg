@@ -58,7 +58,7 @@ function Index() {
                 </div>
                 <div className="flex ml-auto">
                   <div className="bg-default-300 rounded-lg px-6 py-3 text-center  hover:bg-default-300">
-                    mc.minecraft.gg
+                    play.minecraft.gg
                   </div>
                 </div>
               </div>
