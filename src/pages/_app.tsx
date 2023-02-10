@@ -3,22 +3,33 @@ import '../assets/css/style.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DefaultSeo } from 'next-seo';
-import { useState } from 'react';
+import { CookiesProvider, useCookies } from 'react-cookie';
 import SEO from '../../next-seo.config';
 import { Header } from '../common/components/Header';
 import DisclaimerAlert from '../common/components/layout/Alerts/Disclaimer';
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  const [yes, setYes] = useState<boolean>(false);
+  const [cookies, setCookie] = useCookies(['disclaimer']);
+
+  function handleCookie(value: string) {
+    setCookie('disclaimer', value, { path: '/' });
+  }
+  const showDisclaimer = cookies['disclaimer'] !== 'yes';
+
   return (
-    <QueryClientProvider client={queryClient}>
-      {!yes && <DisclaimerAlert onClick={() => setYes(true)} />}
-      <Header />
-      <DefaultSeo {...SEO} />
-      <div>
-        <Component {...pageProps} key={router.route} />
-      </div>
-    </QueryClientProvider>
+    <CookiesProvider>
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <DefaultSeo {...SEO} />
+        <DisclaimerAlert
+          onClick={() => handleCookie('yes')}
+          open={showDisclaimer}
+        />
+        <div>
+          <Component {...pageProps} key={router.route} />
+        </div>{' '}
+      </QueryClientProvider>
+    </CookiesProvider>
   );
 }
