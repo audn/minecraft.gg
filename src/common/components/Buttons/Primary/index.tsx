@@ -14,7 +14,7 @@ function PrimaryButton({
       disabled={disabled}
       className={concat(
         className ? className : '',
-        'flex items-center px-10 py-3 text-lg bordder-t-4  border-types-green bg-types-green/80 btn-border-green btn-primary',
+        'flex items-center px-10 py-3 bordder-t-4 border-types-green bg-types-green/80 btn-border-green btn-primary text-2xl shadow font-minecraft font-bold',
       )}
     >
       {isLoading ? (

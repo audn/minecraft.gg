@@ -7,7 +7,7 @@ html {
 body {
   overflow-x: hidden;
   color: #eff3f6;
-  font-family: 'Inter', sans-serif;
+  font-family: 'minecraft';
   background-color: #151515;
 }
 .animate {
@@ -47,6 +47,14 @@ body {
     0 8px 0px 0 rgba(49, 52, 66, .69),
     8px 0 0px 0 rgba(49, 52, 66, 1),
     -8px 0 0px 0 rgba(49, 52, 66, 1);
+}
+.input-border {
+  /* prettier-ignore*/
+  box-shadow:  
+    0 -3px 0px 0 #313442,
+    0 3px 0px 0 #313442,
+    3px 0 0px 0 #313442,
+    -3px 0 0px 0 #313442;
 }
 .input-field:focus ~ #form-error {
   display: none;

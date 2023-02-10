@@ -13,6 +13,7 @@ module.exports = {
   types: {
     50: '#030A0C',
     100: '#0C0F14',
+    150: '#1d2129',
     200: '#313442',
     yellow: '#F6DA6A',
     green: '#61BC47',
