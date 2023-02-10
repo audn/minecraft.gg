@@ -21,26 +21,32 @@ body {
   will-change: transform;
 }
 .bordery {
-  border: 1px solid teal;
-  padding: 20px;
   position: relative;
 }
-.bordery::after,
-.bordery::before {
-  background-color: white;
-  content: '';
-  display: block;
-  height: 10px;
-  position: absolute;
-  width: 10px;
+
+.btn-border-green {
+  /* prettier-ignore*/
+  box-shadow:  
+    0 -5px 0px 0 rgba(97, 188, 71, 1),
+    0 5px 0px 0 rgba(97, 188, 71, .40),
+    5px 0 0px 0 rgba(97, 188, 71, .60),
+    -5px 0 0px 0 rgba(97, 188, 71, .60);
 }
-.bordery::after {
-  bottom: -1px;
-  right: -1px;
+.btn-primary {
+  filter: drop-shadow(5px 5px 0px rgba(101, 103, 125, 0.25));
+  @apply transition-all ease-out duration-200;
 }
-.bordery::before {
-  top: -1px;
-  left: -1px;
+
+.btn-primary:active {
+  filter: drop-shadow(0 0 0 rgba(101, 103, 125, 0.25));
+}
+.content-border {
+  /* prettier-ignore*/
+  box-shadow:  
+    0 -8px 0px 0 rgba(64, 67, 87, 1),
+    0 8px 0px 0 rgba(49, 52, 66, .69),
+    8px 0 0px 0 rgba(49, 52, 66, 1),
+    -8px 0 0px 0 rgba(49, 52, 66, 1);
 }
 .input-field:focus ~ #form-error {
   display: none;
@@ -86,7 +92,9 @@ body {
   transition: opacity 0.3s ease-in-out !important;
   visibility: hidden;
 }
-
+.shadow {
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.37) !important;
+}
 .__react_component_tooltip.show {
   visibility: visible;
   /* margin-top: 0px; */
@@ -107,9 +115,39 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'minecraft';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/1_MinecraftRegular1.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'minecraft';
+  font-style: italic;
+  font-weight: normal;
+  src: url('/fonts/2_MinecraftItalic1.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'minecraft';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/3_MinecraftBold1.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'minecraft';
+  font-style: italic;
+  font-weight: bold;
+  src: url('/fonts/4_MinecraftBoldItalic1.otf') format('otf');
+}
+
 .font-ten {
   font-family: 'Minecraft-Ten';
+  margin-top: -5px !important;
 }
 .font-minecraft {
-  font-family: Minecraftia;
+  line-height: 1.25rem;
+  font-family: 'minecraft';
 }
