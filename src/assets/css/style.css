@@ -4,6 +4,7 @@
 html {
   overflow-y: overlay;
 }
+
 body {
   overflow-x: hidden;
   color: #eff3f6;
@@ -158,4 +159,7 @@ body {
 .font-minecraft {
   line-height: 1.25rem;
   font-family: 'minecraft';
+}
+.font-inter {
+  font-family: 'Inter';
 }

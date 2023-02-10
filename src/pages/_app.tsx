@@ -16,7 +16,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       {!yes && <DisclaimerAlert onClick={() => setYes(true)} />}
       <Header />
       <DefaultSeo {...SEO} />
-      <div className="px-5">
+      <div>
         <Component {...pageProps} key={router.route} />
       </div>
     </QueryClientProvider>
