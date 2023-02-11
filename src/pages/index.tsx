@@ -78,7 +78,7 @@ export default function Home() {
               History
               <div className="flex flex-wrap gap-2">
                 {[...new Set(users)].map((user) => (
-                  <Tooltip id={user} text={user}>
+                  <Tooltip id={user} text={user} key={user}>
                     <Link href={`/user/${user}`}>
                       <img
                         src={`https://mc-heads.net/avatar/${user}`}

@@ -166,7 +166,7 @@ function UserProfile({
                       `/give @p minecraft:player_head{SkullOwner:"${user.name}"}`,
                     )
                   }
-                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80"
+                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 max-w-[320px]"
                 >
                   <img
                     src={`https://mc-heads.net/avatar/${user.id}`}
@@ -185,7 +185,7 @@ function UserProfile({
                       `/give @p minecraft:skull 1 3 {SkullOwner:"${user.name}"}`,
                     )
                   }
-                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80"
+                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 max-w-[320px]"
                 >
                   <img
                     src={`https://mc-heads.net/avatar/${user.id}`}
