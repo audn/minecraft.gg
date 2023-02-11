@@ -11,8 +11,8 @@ export default {
     images: [
       {
         url: 'https://www.minecraft.gg/steve.png',
-        width: 96,
-        height: 96,
+        width: 200,
+        height: 200,
         alt: '',
         type: 'image/jpeg',
       },

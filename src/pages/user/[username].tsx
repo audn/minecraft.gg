@@ -114,8 +114,8 @@ function UserProfile({
           images: [
             {
               url: `https://mc-heads.net/avatar/${user.id}`,
-              height: 96,
-              width: 96,
+              height: 200,
+              width: 200,
               alt: `${user.name}`,
               type: 'image/jpeg',
             },
