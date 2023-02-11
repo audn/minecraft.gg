@@ -44,22 +44,18 @@ function UserProfile({
         canvas,
         width: 220,
         height: 400,
-        // skin: '/skin.png',
         skin: user.SKIN.url,
       });
-      console.log(skinViewer.pixelRatio);
+      console.log(skinViewer.playerObject);
 
       skinViewer.width = 220;
       skinViewer.height = 450;
       if (user.CAPE) {
         skinViewer.loadCape(user.CAPE.url);
       }
-      //   skinViewer.loadCape(user.CAPE.url, { backEquipment: 'elytra' });
       skinViewer.controls.enableZoom = false;
 
       skinViewer.fov = 70;
-      //   const arm = skinViewer.playerObject.skin.rightArm.children[0].children[1];
-      //   arm.visible = false;
 
       const body = skinViewer.playerObject.skin;
       let head = body.head.children;
@@ -68,8 +64,6 @@ function UserProfile({
           x.rotateY(5.6);
         }
       });
-
-      //   console.log(skinViewer.playerObject);
 
       if (showControls) {
         skinViewer.animation = new skinview3d.WalkingAnimation();
@@ -87,12 +81,17 @@ function UserProfile({
       //   skinViewer.animation = null;
     }
   }, [showControls]);
+  useEffect(() => {
+    const head = document.getElementById('favicon');
+    head?.setAttribute('href', `https://mc-heads.net/avatar/${user.id}`);
+  }, []);
   return (
     <DefaultLayout>
       <div className="max-w-6xl px-5 py-8 mx-auto">
         <Logo />
       </div>
-      <NextSeo />
+      <NextSeo title={`${user.name} | Minecraft Profile | minecraft.gg`} />
+
       <div className="min-h-screen bg-types-100">
         <div className={concat('flex items-center px-2 bg-types-50 ')}>
           <div className="relative flex flex-col items-center w-full max-w-6xl mx-auto sm:flex-row">
@@ -125,8 +124,38 @@ function UserProfile({
             <div className="absolute inset-x-0 bottom-0 z-50 w-full h-10 bg-gradient-to-t from-types-50" />
           </div>
         </div>
-        <div className="relative z-10 p-24 bg-types-100">
-          <div className="w-full max-w-6xl mx-auto">hgey</div>
+        <div className="relative z-10 p-3 sm:p-12 bg-types-100">
+          <div className="flex w-full max-w-6xl mx-auto">
+            <div className="flex flex-col items-start justify-center p-5 rounded-md bg-types-50">
+              <h2 className="mb-3 text-white/80">Player Head Command</h2>
+              <div className="flex flex-col space-y-2">
+                <button className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80">
+                  <img
+                    src={`https://mc-heads.net/avatar/${user.id}`}
+                    className="w-6 h-6 mr-2"
+                  />
+                  <span className="truncate">
+                    {'/give @p minecraft:player_head{SkullOwner:"audn"}'}
+                  </span>
+                  <span className="flex items-center px-2 py-1 ml-2 -m-1 text-xs rounded-full whitespace-nowrap bg-types-100">
+                    &gt; 1.13
+                  </span>
+                </button>
+                <button className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80">
+                  <img
+                    src={`https://mc-heads.net/avatar/${user.id}`}
+                    className="w-6 h-6 mr-2"
+                  />
+                  <span className="truncate">
+                    {'/give @p minecraft:skull 1 3 {SkullOwner:"audn"}'}
+                  </span>
+                  <span className="flex items-center px-2 py-1 ml-2 -m-1 text-xs rounded-full whitespace-nowrap bg-types-100">
+                    &lt; 1.12
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </DefaultLayout>
