@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { Button } from '../common/components/Buttons';
 import { Form } from '../common/components/Form';
 import Link from '../common/components/layout/Link';
@@ -17,6 +17,14 @@ export default function Home() {
     e.preventDefault();
     router.push({ pathname: `/user/${search}` }, undefined, { shallow: true });
   }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const input = document.getElementById('username');
+      if (input) {
+        input.focus();
+      }
+    }
+  }, []);
   return (
     <DefaultLayout video={true}>
       <NextSeo />

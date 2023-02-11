@@ -16,6 +16,7 @@ function Input({
         placeholder={placeholder}
         id={id}
         type={type}
+        autoFocus={true}
         disabled={disabled}
         value={value}
         onChange={(event) => onChange(event.target.value)}
