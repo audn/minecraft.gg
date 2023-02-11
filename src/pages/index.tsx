@@ -12,7 +12,18 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const router = useRouter();
+
   function onSearch(e: SyntheticEvent) {
+    const storage = localStorage.getItem('history');
+    if (!storage) {
+      localStorage.setItem('history', JSON.stringify([search]));
+    } else {
+      localStorage.setItem(
+        'history',
+        JSON.stringify(JSON.parse(storage).concat(search)),
+      );
+    }
+
     setIsLoading(true);
     e.preventDefault();
     router.push({ pathname: `/user/${search}` }, undefined, { shallow: true });
