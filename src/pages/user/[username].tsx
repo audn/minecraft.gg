@@ -98,7 +98,7 @@ function UserProfile({
     }
 
     const head = document.getElementById('favicon');
-    head?.setAttribute('href', `https://mc-heads.net/avatar/${user.id}`);
+    head?.setAttribute('href', `https://mc-heads.net/avatar/${user.id}/250`);
   }, []);
   return (
     <DefaultLayout>
@@ -113,9 +113,9 @@ function UserProfile({
         openGraph={{
           images: [
             {
-              url: `https://mc-heads.net/avatar/${user.id}`,
-              height: 200,
-              width: 200,
+              url: `https://mc-heads.net/avatar/${user.id}/250`,
+              height: 250,
+              width: 250,
               alt: `${user.name}`,
               type: 'image/jpeg',
             },
