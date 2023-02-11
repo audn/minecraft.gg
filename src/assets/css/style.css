@@ -8,7 +8,7 @@ html {
 body {
   overflow-x: hidden;
   color: #eff3f6;
-  font-family: 'minecraft';
+  font-family: 'MinecraftGG';
   background-color: #151515;
 }
 .animate {
@@ -137,31 +137,33 @@ body {
 }
 
 @font-face {
-  font-family: 'minecraft';
+  font-family: 'MinecraftGG';
   font-style: normal;
   font-weight: normal;
-  src: url('/fonts/1_MinecraftRegular1.otf') format('otf');
+  src: url('/fonts/1_MinecraftRegular1.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'minecraft';
+  font-family: 'MinecraftGG';
   font-style: italic;
   font-weight: normal;
-  src: url('/fonts/2_MinecraftItalic1.otf') format('otf');
+  src: url('/fonts/2_MinecraftItalic1.otf') format('woff');
 }
 
 @font-face {
-  font-family: 'minecraft';
+  font-family: 'MinecraftGG';
   font-style: normal;
   font-weight: bold;
-  src: url('/fonts/3_MinecraftBold1.otf') format('otf');
+  src: url('/fonts/3_MinecraftBold1.otf') format('woff');
 }
 
 @font-face {
-  font-family: 'minecraft';
+  font-family: 'MinecraftGG';
   font-style: italic;
   font-weight: bold;
-  src: url('/fonts/4_MinecraftBoldItalic1.otf') format('otf');
+  src: url('/fonts/4_MinecraftBoldItalic1.otf') format('woff');
 }
 
 .font-ten {
@@ -169,8 +171,8 @@ body {
   margin-top: -5px !important;
 }
 .font-minecraft {
+  font-family: 'MinecraftGG';
   line-height: 1.25rem;
-  font-family: 'minecraft';
 }
 .font-inter {
   font-family: 'Inter';
