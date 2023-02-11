@@ -83,23 +83,25 @@ function UserProfile({ user }: { user: any }) {
       </div>
       <NextSeo />
       <div className="min-h-screen bg-types-100">
-        <div
-          className={concat(
-            showControls ? 'sm:h-[590px]' : 'sm:h-[410px]',
-            'transition-all ease-out justify-start duration-700 relative flex items-center px-2 sm:px-24 bg-types-50 ',
-          )}
-        >
+        <div className={concat('flex items-center px-2 bg-types-50 ')}>
           <div className="flex flex-col items-center w-full max-w-6xl mx-auto sm:flex-row">
-            <div className="top-10 sm:absolute">
+            <div
+              className={concat(
+                showControls
+                  ? 'max-h-[430px] sm:max-h-[590px] '
+                  : 'max-h-[300px] sm:max-h-[410px]',
+                'transition-all ease-out justify-start duration-700 relative h-screen',
+              )}
+            >
               <canvas
-                className="cursor-grab"
+                className="cursor-grab top-10 sm:absolute "
                 id="skin_container"
                 onMouseDown={(e) => onStart(e)}
                 onMouseUp={(e) => onStop(e)}
                 //   onDrag={handleSkinClick}
               ></canvas>
             </div>
-            <div className="flex flex-col  font-inter sm:ml-[25%]">
+            <div className="bg-types-50 z-10 flex flex-col py-5 sm:py-0 sm:pb-0 pb-10 font-inter sm:ml-[25%]">
               <h1 className="mb-3 text-4xl font-bold text-white sm:text-6xl">
                 audn
               </h1>
