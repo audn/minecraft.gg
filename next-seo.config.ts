@@ -10,7 +10,7 @@ export default {
     site_name: 'minecraft.gg',
     images: [
       {
-        url: 'minecraft.gg/steve.png',
+        url: 'https://www.minecraft.gg/steve.png',
         width: 96,
         height: 96,
         alt: '',
