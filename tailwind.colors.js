@@ -6,8 +6,7 @@
 module.exports = {
   brand: {
     primary: {
-      100: '#f35f84',
-      150: '#737ff1',
+      100: '#329DFA',
     },
   },
   types: {

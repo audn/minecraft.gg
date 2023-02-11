@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { SyntheticEvent, useState } from 'react';
 import { Button } from '../common/components/Buttons';
 import { Form } from '../common/components/Form';
+import Logo from '../common/components/misc/Logo';
 import { DefaultLayout } from '../common/layouts/Default';
 
 export default function Home() {
@@ -18,6 +19,9 @@ export default function Home() {
   return (
     <DefaultLayout video={true}>
       <NextSeo />
+      <div className="absolute inset-x-0 flex justify-center w-full top-5">
+        <Logo color="blue" />
+      </div>
       <div className="px-5 ">
         <div className="flex flex-col items-center justify-center min-h-screen">
           <div className="flex flex-col items-center justify-center w-full max-w-lg p-10 space-y-10 text-center bg-types-100 content-border">

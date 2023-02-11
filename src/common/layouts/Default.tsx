@@ -12,7 +12,7 @@ type Props = {
 };
 export const DefaultLayout = ({ children, video = false }: Props) => {
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen bg-types-50">
       <main className={'flex-1 w-full text-on-100 z-30'}>{children}</main>
       {video && (
         <>

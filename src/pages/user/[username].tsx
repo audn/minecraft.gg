@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { MouseEvent, useEffect, useState } from 'react';
 import * as skinview3d from 'skinview3d';
+import Logo from '../../common/components/misc/Logo';
 import { DefaultLayout } from '../../common/layouts/Default';
 import concat from '../../common/utils/helpers/concat';
 import { getUser } from '../../common/utils/hooks/api/cats';
@@ -77,16 +78,19 @@ function UserProfile({ user }: { user: any }) {
   }, [showControls]);
   return (
     <DefaultLayout>
+      <div className="max-w-6xl px-5 py-8 mx-auto">
+        <Logo />
+      </div>
       <NextSeo />
       <div className="min-h-screen bg-types-100">
         <div
           className={concat(
-            showControls ? 'h-[590px]' : 'h-[490px]',
-            'transition-all ease-out duration-700 relative flex items-end px-24 bg-types-50 ',
+            showControls ? 'sm:h-[590px]' : 'sm:h-[410px]',
+            'transition-all ease-out justify-start duration-700 relative flex items-center px-2 sm:px-24 bg-types-50 ',
           )}
         >
-          <div className="flex items-center w-full max-w-6xl mx-auto ">
-            <div className="absolute top-28">
+          <div className="flex flex-col items-center w-full max-w-6xl mx-auto sm:flex-row">
+            <div className="top-10 sm:absolute">
               <canvas
                 className="cursor-grab"
                 id="skin_container"
@@ -95,18 +99,18 @@ function UserProfile({ user }: { user: any }) {
                 //   onDrag={handleSkinClick}
               ></canvas>
             </div>
-            <div className="ml-[25%] mb-28">
-              <div className="flex flex-col font-inter">
-                <h1 className="mb-3 text-6xl font-bold text-white">audn</h1>
-                <ul>
-                  <li>
-                    <span className="text-white/50">UUID </span>
-                    <span className="font-semibold text-white/80">
-                      a4da5ef3a942492f8e3f748e9efcf9b7
-                    </span>
-                  </li>
-                </ul>
-              </div>
+            <div className="flex flex-col  font-inter sm:ml-[25%]">
+              <h1 className="mb-3 text-4xl font-bold text-white sm:text-6xl">
+                audn
+              </h1>
+              <ul>
+                <li>
+                  <span className="text-white/50">UUID </span>
+                  <span className="font-semibold text-white/80">
+                    a4da5ef3a942492f8e3f748e9efcf9b7
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="absolute inset-x-0 bottom-0 w-full h-10 bg-gradient-to-t from-types-50" />
