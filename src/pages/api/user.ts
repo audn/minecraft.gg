@@ -1,5 +1,5 @@
 /**
- * Mojang API endpoints
+ * https://github.com/heychazza/api.blockga.me/blob/master/api/lookup.js
  */
 export const MOJANG_API = {
   UUID: 'https://api.mojang.com/users/profiles/minecraft/',
