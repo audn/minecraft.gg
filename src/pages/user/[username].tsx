@@ -5,9 +5,18 @@ import * as skinview3d from 'skinview3d';
 import Logo from '../../common/components/misc/Logo';
 import { DefaultLayout } from '../../common/layouts/Default';
 import concat from '../../common/utils/helpers/concat';
-import { getUser } from '../../common/utils/hooks/api/cats';
+import { getUser } from '../../common/utils/hooks/api/users';
 
-function UserProfile({ user }: { user: any }) {
+function UserProfile({
+  user,
+}: {
+  user: {
+    name: string;
+    id: string;
+    SKIN: { url: string; metadata: { model: string } };
+    CAPE?: { url: string };
+  };
+}) {
   const [showControls, setShowControls] = useState<boolean>(false);
   const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
 
@@ -35,15 +44,17 @@ function UserProfile({ user }: { user: any }) {
         canvas,
         width: 220,
         height: 400,
-        skin: '/skin.png',
+        // skin: '/skin.png',
+        skin: user.SKIN.url,
       });
       console.log(skinViewer.pixelRatio);
 
       skinViewer.width = 220;
       skinViewer.height = 450;
-
-      //   skinViewer.loadCape('img/cape.png');
-      //   skinViewer.loadCape('img/cape.png', { backEquipment: 'elytra' });
+      if (user.CAPE) {
+        skinViewer.loadCape(user.CAPE.url);
+      }
+      //   skinViewer.loadCape(user.CAPE.url, { backEquipment: 'elytra' });
       skinViewer.controls.enableZoom = false;
 
       skinViewer.fov = 70;
@@ -84,7 +95,7 @@ function UserProfile({ user }: { user: any }) {
       <NextSeo />
       <div className="min-h-screen bg-types-100">
         <div className={concat('flex items-center px-2 bg-types-50 ')}>
-          <div className="flex flex-col items-center w-full max-w-6xl mx-auto sm:flex-row">
+          <div className="relative flex flex-col items-center w-full max-w-6xl mx-auto sm:flex-row">
             <div
               className={concat(
                 showControls
@@ -98,27 +109,24 @@ function UserProfile({ user }: { user: any }) {
                 id="skin_container"
                 onMouseDown={(e) => onStart(e)}
                 onMouseUp={(e) => onStop(e)}
-                //   onDrag={handleSkinClick}
               ></canvas>
             </div>
             <div className="bg-types-50 z-10 flex flex-col py-5 sm:py-0 sm:pb-0 pb-10 font-inter sm:ml-[25%]">
               <h1 className="mb-3 text-4xl font-bold text-white sm:text-6xl">
-                audn
+                {user.name}
               </h1>
               <ul>
                 <li>
                   <span className="text-white/50">UUID </span>
-                  <span className="font-semibold text-white/80">
-                    a4da5ef3a942492f8e3f748e9efcf9b7
-                  </span>
+                  <span className="font-semibold text-white/80">{user.id}</span>
                 </li>
               </ul>
             </div>
+            <div className="absolute inset-x-0 bottom-0 z-50 w-full h-10 bg-gradient-to-t from-types-50" />
           </div>
-          <div className="absolute inset-x-0 bottom-0 w-full h-10 bg-gradient-to-t from-types-50" />
         </div>
         <div className="relative z-10 p-24 bg-types-100">
-          {/* <div className="w-full max-w-6xl mx-auto">hgey</div> */}
+          <div className="w-full max-w-6xl mx-auto">hgey</div>
         </div>
       </div>
     </DefaultLayout>
@@ -131,7 +139,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const data = await getUser(username);
 
-  if (!data) {
+  if (data.err) {
     return {
       notFound: true,
       revalidate: 10,
@@ -139,7 +147,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
 
   return {
-    props: { user: JSON.stringify(data) },
+    props: { ...data },
     revalidate: 5,
   };
 };
