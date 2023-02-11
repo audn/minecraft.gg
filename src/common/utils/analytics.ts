@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = 'UA-REPLACE-ME';
+export const GA_TRACKING_ID = 'G-0XZCN2J127';
 
 export const trackPageview = (url: string) => {
   try {
@@ -19,7 +19,7 @@ export const trackEvent = ({
   label: string;
   value: string;
 }) => {
-      try {
+  try {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,

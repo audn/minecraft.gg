@@ -1,4 +1,3 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button } from '../../Buttons';
 import Text from '../headings/Text';
 
@@ -12,11 +11,11 @@ function DisclaimerAlert({
   return (
     <div>
       {open && (
-        <div className="flex items-center justify-center min-h-screen w-full fixed z-50">
-          <div className="bg-types-50/90 backdrop-blur-sm inset-0 z-10 absolute" />
+        <div className="fixed z-50 flex items-center justify-center w-full min-h-screen">
+          <div className="absolute inset-0 z-10 bg-types-50/90 backdrop-blur-sm" />
 
-          <div className="content-border bg-types-100 z-20 p-5 py-12 max-w-xl w-full text-center flex flex-col space-y-8 justify-center items-center ">
-            <h1 className="text-4xl font-ten text-types-yellow shadow">
+          <div className="z-20 flex flex-col items-center justify-center w-full max-w-xl p-5 py-12 space-y-8 text-center content-border bg-types-100 ">
+            <h1 className="text-4xl shadow font-ten text-types-yellow">
               disclaimer
             </h1>
             <Text className="font-minecraft leading-8 !text-xl">
@@ -34,25 +33,3 @@ function DisclaimerAlert({
 }
 
 export default DisclaimerAlert;
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const slug = (ctx.params?.bot || '') as string[] | string;
-  const getSlug = slug.length > 1 ? slug[0] : (slug as string);
-  const getTab = slug.length > 1 ? slug[1] : 'Overview';
-
-  //   const data = await getBotBySlug(getSlug);
-
-  //   if (!data) {
-  //     return {
-  //       notFound: true,
-  //       revalidate: 10,
-  //     };
-  //   }
-
-  return {
-    props: { user: {} },
-    revalidate: 5,
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = () =>
-  Promise.resolve({ paths: [], fallback: 'blocking' });
