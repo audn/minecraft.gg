@@ -5,48 +5,8 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/(.*)/components/(.*)',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/screens/(.*)',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/modals/(.*)',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/components',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/screens',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/modals',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/(.*)/components',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/(.*)/screens',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/(.*)/(.*)/(.*)/modals',
-        destination: '/',
+        source: '/discord',
+        destination: 'https://discord.com/invite/GPA4aFr',
         permanent: true,
       },
     ];

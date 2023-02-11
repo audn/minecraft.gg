@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { SyntheticEvent, useState } from 'react';
 import { Button } from '../common/components/Buttons';
 import { Form } from '../common/components/Form';
+import Link from '../common/components/layout/Link';
 import Logo from '../common/components/misc/Logo';
 import { DefaultLayout } from '../common/layouts/Default';
 
@@ -43,10 +44,18 @@ export default function Home() {
                 title="GO!"
                 isLoading={isLoading}
                 className="text-xl"
+                disabled={search.length < 3}
                 onClick={onSearch}
               />
             </Form.Layout>
           </div>
+          <Link href="/discord" target="_blank">
+            <Button.Primary
+              icon="fa-brands fa-discord"
+              title="Join Discord"
+              className="mt-10 !font-normal !text-base !px-2 !py-1 btn-border-discord !bg-brand-discord-100"
+            />
+          </Link>
         </div>
       </div>
     </DefaultLayout>

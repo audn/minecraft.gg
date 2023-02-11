@@ -6,18 +6,20 @@ function Link({
   children,
   rel,
   href,
+  target,
   ...props
 }: {
   children: ReactNode;
   rel?: 'author' | 'me';
   className?: string;
   href: string;
+  target?: '_blank' | '_self';
 }) {
   return (
     <NextLink href={href}>
       <a
         {...props}
-        target={validateUrl(href) ? '_blank' : '_self'}
+        target={target ? target : validateUrl(href) ? '_blank' : '_self'}
         rel={validateUrl(href) ? 'external nofollow noopener' : rel ? rel : ''}
       >
         {children}

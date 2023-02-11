@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { MouseEvent, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import * as skinview3d from 'skinview3d';
 import Logo from '../../common/components/misc/Logo';
 import { DefaultLayout } from '../../common/layouts/Default';
@@ -20,6 +21,10 @@ function UserProfile({
   const [showControls, setShowControls] = useState<boolean>(false);
   const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
 
+  const copyCommand = (val: string) => {
+    navigator.clipboard.writeText(val);
+    toast.success('Copied!');
+  };
   const onStart = (e: MouseEvent<HTMLCanvasElement>) => {
     setDragStartPos({ x: e.screenX, y: e.screenY });
   };
@@ -129,26 +134,38 @@ function UserProfile({
             <div className="flex flex-col items-start justify-center p-5 rounded-md bg-types-50">
               <h2 className="mb-3 text-white/80">Player Head Command</h2>
               <div className="flex flex-col space-y-2">
-                <button className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80">
+                <button
+                  onClick={() =>
+                    copyCommand(
+                      `/give @p minecraft:player_head{SkullOwner:"${user.name}"}`,
+                    )
+                  }
+                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80"
+                >
                   <img
                     src={`https://mc-heads.net/avatar/${user.id}`}
                     className="w-6 h-6 mr-2"
                   />
                   <span className="truncate">
-                    {'/give @p minecraft:player_head{SkullOwner:"audn"}'}
+                    {`/give @p minecraft:player_head{SkullOwner:"${user.name}"}'`}
                   </span>
                   <span className="flex items-center px-2 py-1 ml-2 -m-1 text-xs rounded-full whitespace-nowrap bg-types-100">
                     &gt; 1.13
                   </span>
                 </button>
-                <button className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80">
+                <button
+                  onClick={() =>
+                    copyCommand(
+                      `/give @p minecraft:skull 1 3 {SkullOwner:"${user.name}"}`,
+                    )
+                  }
+                  className="flex items-center px-3 py-2 rounded-md hover:text-white animate text-white/60 bg-types-150 w-80"
+                >
                   <img
                     src={`https://mc-heads.net/avatar/${user.id}`}
                     className="w-6 h-6 mr-2"
                   />
-                  <span className="truncate">
-                    {'/give @p minecraft:skull 1 3 {SkullOwner:"audn"}'}
-                  </span>
+                  <span className="truncate">{`/give @p minecraft:skull 1 3 {SkullOwner:"${user.name}"}`}</span>
                   <span className="flex items-center px-2 py-1 ml-2 -m-1 text-xs rounded-full whitespace-nowrap bg-types-100">
                     &lt; 1.12
                   </span>

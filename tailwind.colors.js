@@ -8,6 +8,10 @@ module.exports = {
     primary: {
       100: '#329DFA',
     },
+    discord: {
+      100: '#7289DA',
+      150: '#889DE8',
+    },
   },
   types: {
     50: '#030A0C',

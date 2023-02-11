@@ -33,6 +33,21 @@ body {
     5px 0 0px 0 rgba(97, 188, 71, .60),
     -5px 0 0px 0 rgba(97, 188, 71, .60);
 }
+.btn-border-discord {
+  /* prettier-ignore*/
+  box-shadow:  
+    0 -3px 0px 0 #889DE8,
+    0 3px 0px 0 #536AB8,
+    3px 0 0px 0 #889DE8,
+    -3px 0 0px 0 #889DE8 !important;
+}
+
+.btn-primary,
+.btn-border-discord {
+  filter: drop-shadow(5px 5px 0px rgba(114, 137, 217, 0.25)) !important;
+  @apply transition-all duration-200 ease-out;
+}
+
 .btn-primary {
   filter: drop-shadow(5px 5px 0px rgba(101, 103, 125, 0.25));
   @apply transition-all duration-200 ease-out;
@@ -57,6 +72,7 @@ body {
     3px 0 0px 0 #313442,
     -3px 0 0px 0 #313442;
 }
+
 .input-field:focus ~ #form-error {
   display: none;
 }

@@ -4,6 +4,7 @@ import '../assets/css/style.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DefaultSeo } from 'next-seo';
 import { CookiesProvider, useCookies } from 'react-cookie';
+import { Toaster } from 'react-hot-toast';
 import SEO from '../../next-seo.config';
 import { Header } from '../common/components/Header';
 import DisclaimerAlert from '../common/components/layout/Alerts/Disclaimer';
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
     <CookiesProvider>
       <QueryClientProvider client={queryClient}>
         <Header />
+        <Toaster />
         <DefaultSeo {...SEO} />
         <DisclaimerAlert
           onClick={() => handleCookie('yes')}
