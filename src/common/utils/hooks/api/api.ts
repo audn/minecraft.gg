@@ -1,4 +1,4 @@
-const base = 'http://localhost:3000/api/';
+const base = 'http://minecraft.gg/api/';
 
 async function get(endpoint: string, requireAuth: boolean, headers?: object) {
   return request(endpoint, 'GET', requireAuth, undefined, headers);
