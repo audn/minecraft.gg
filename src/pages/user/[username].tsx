@@ -87,6 +87,16 @@ function UserProfile({
     }
   }, [showControls]);
   useEffect(() => {
+    const storage = localStorage.getItem('viewed');
+    if (!storage) {
+      localStorage.setItem('viewed', JSON.stringify([user.name]));
+    } else {
+      localStorage.setItem(
+        'viewed',
+        JSON.stringify(JSON.parse(storage).concat(user.name)),
+      );
+    }
+
     const head = document.getElementById('favicon');
     head?.setAttribute('href', `https://mc-heads.net/avatar/${user.id}`);
   }, []);
