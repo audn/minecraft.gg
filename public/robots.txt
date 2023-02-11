@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://align-items.center
+Host: https://minecraft.gg
 
 # Sitemaps
-Sitemap: https://align-items.center/sitemap.xml
+Sitemap: https://minecraft.gg/sitemap.xml

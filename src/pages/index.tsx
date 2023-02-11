@@ -73,7 +73,7 @@ export default function Home() {
               />
             </Form.Layout>
           </div>
-          {users.length && (
+          {users.length ? (
             <div className="roundedsmd max-w-lg flex items-center flex-col w-full 0 contents-border !mt-5">
               History
               <div className="flex flex-wrap gap-2">
@@ -89,6 +89,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          ) : (
+            ''
           )}
           <Link href="/discord" target="_blank">
             <Button.Primary
