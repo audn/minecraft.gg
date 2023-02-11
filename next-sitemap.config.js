@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://align-items.center',
+  siteUrl: process.env.SITE_URL || 'https://minecraft.gg',
   generateRobotsTxt: true,
   autoLastmod: false,
   robotsTxtOptions: {
