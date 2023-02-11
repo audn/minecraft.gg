@@ -95,7 +95,20 @@ function UserProfile({
       <div className="max-w-6xl px-5 py-8 mx-auto">
         <Logo />
       </div>
-      <NextSeo title={`${user.name} | Minecraft Profile | minecraft.gg`} />
+      <NextSeo
+        title={`${user.name} | Minecraft Profile | minecraft.gg`}
+        openGraph={{
+          images: [
+            {
+              url: `https://mc-heads.net/avatar/${user.id}`,
+              height: 96,
+              width: 96,
+              alt: `${user.name}`,
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+      />
 
       <div className="min-h-screen bg-types-100">
         <div className={concat('flex items-center px-2 bg-types-50 ')}>
