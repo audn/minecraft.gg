@@ -96,6 +96,9 @@ function UserProfile({
         <Logo />
       </div>
       <NextSeo
+        twitter={{
+          cardType: 'summary',
+        }}
         title={`${user.name} | Minecraft Profile | minecraft.gg`}
         openGraph={{
           images: [
