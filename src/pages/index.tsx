@@ -4,15 +4,16 @@ import { SyntheticEvent, useEffect, useState } from 'react';
 import { Button } from '../common/components/Buttons';
 import { Form } from '../common/components/Form';
 import Link from '../common/components/layout/Link';
+import Tooltip from '../common/components/layout/Tooltip';
 import Logo from '../common/components/misc/Logo';
 import { DefaultLayout } from '../common/layouts/Default';
 
 export default function Home() {
   const [search, setSearch] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [users, setUsers] = useState<string[]>([]);
 
   const router = useRouter();
-
   function onSearch(e: SyntheticEvent) {
     const storage = localStorage.getItem('history');
     if (!storage) {
@@ -30,12 +31,16 @@ export default function Home() {
   }
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const viewed = localStorage.getItem('viewed');
+      if (viewed) setUsers(JSON.parse(viewed));
+
       const input = document.getElementById('username');
       if (input) {
         input.focus();
       }
     }
   }, []);
+
   return (
     <DefaultLayout video={true}>
       <NextSeo />
@@ -68,6 +73,23 @@ export default function Home() {
               />
             </Form.Layout>
           </div>
+          {users.length && (
+            <div className="roundedsmd max-w-lg flex items-center flex-col w-full 0 contents-border !mt-5">
+              History
+              <div className="flex flex-wrap gap-2">
+                {[...new Set(users)].map((user) => (
+                  <Tooltip id={user} text={user}>
+                    <Link href={`/user/${user}`}>
+                      <img
+                        src={`https://mc-heads.net/avatar/${user}`}
+                        className="w-6 h-6"
+                      />
+                    </Link>
+                  </Tooltip>
+                ))}
+              </div>
+            </div>
+          )}
           <Link href="/discord" target="_blank">
             <Button.Primary
               icon="fa-brands fa-discord"
