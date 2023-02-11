@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button } from '../../Buttons';
 import Text from '../headings/Text';
 
@@ -33,3 +34,25 @@ function DisclaimerAlert({
 }
 
 export default DisclaimerAlert;
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const slug = (ctx.params?.bot || '') as string[] | string;
+  const getSlug = slug.length > 1 ? slug[0] : (slug as string);
+  const getTab = slug.length > 1 ? slug[1] : 'Overview';
+
+  //   const data = await getBotBySlug(getSlug);
+
+  //   if (!data) {
+  //     return {
+  //       notFound: true,
+  //       revalidate: 10,
+  //     };
+  //   }
+
+  return {
+    props: { user: {} },
+    revalidate: 5,
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = () =>
+  Promise.resolve({ paths: [], fallback: 'blocking' });

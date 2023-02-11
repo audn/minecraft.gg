@@ -1,8 +1,6 @@
-import { API } from '../../../lib/interfaces';
-
-export async function getCats(): Promise<API.Models.Cat[]> {
-  const res = await fetch(`https://cataas.com/api/cats?tags=cute&limit=10`, {
-    mode: 'no-cors',
-  });
+export async function getUser(name: string): Promise<any> {
+  const res = await fetch(
+    `http://localhost:3000/api/user?username=${name}&type=ss`,
+  );
   return res.json();
 }
