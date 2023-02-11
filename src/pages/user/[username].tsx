@@ -33,28 +33,31 @@ function UserProfile({ user }: { user: any }) {
         height: 400,
         skin: '/skin.png',
       });
+      console.log(skinViewer.pixelRatio);
 
       skinViewer.width = 220;
-      skinViewer.height = 400;
+      skinViewer.height = 450;
 
       //   skinViewer.loadCape('img/cape.png');
       //   skinViewer.loadCape('img/cape.png', { backEquipment: 'elytra' });
+      skinViewer.controls.enableZoom = false;
 
       skinViewer.fov = 70;
-      skinViewer.zoom = 1;
-
-      skinViewer.controls.enableRotate = false;
-      skinViewer.controls.enableZoom = false;
+      //   const head = skinViewer.playerObject.skin.head;
+      //   head.rotation.x = 50;
 
       if (showControls) {
         skinViewer.animation = new skinview3d.WalkingAnimation();
+        skinViewer.animation.speed = 0.6;
       } else {
         skinViewer.animation = new skinview3d.IdleAnimation();
+        skinViewer.animation.speed = 1.4;
+        // skinViewer.controls.enableRotate = false;
+        skinViewer.camera.position.y = 10;
+        skinViewer.camera.position.x = -23;
       }
-
-      skinViewer.animation.speed = 1;
-
-      skinViewer.animation.paused = !true;
+      skinViewer.zoom = 0.9;
+      //   skinViewer.animation.paused = !true;
       //   skinViewer.autoRotate = false;
       //   skinViewer.animation = null;
     }
@@ -64,20 +67,21 @@ function UserProfile({ user }: { user: any }) {
       <div
         className={concat(
           showControls ? 'h-[590px]' : 'h-[490px]',
-          'transition-all ease-out duration-100 relative px-24 bg-types-50 pt-36',
+          'transition-all ease-out duration-700 relative flex items-end px-24 bg-types-50 ',
         )}
       >
-        <div className="w-full max-w-6xl mx-auto ">
-          <div className="flex items-center h-[350px]">
+        <div className="flex items-center w-full max-w-6xl mx-auto ">
+          <div className="absolute top-28">
             <canvas
-              className="mr-12 cursor-grab"
+              className="cursor-grab"
               id="skin_container"
               onMouseDown={(e) => onStart(e)}
               onMouseUp={(e) => onStop(e)}
               //   onDrag={handleSkinClick}
             ></canvas>
-
-            <div className="flex flex-col -mt-20 font-inter">
+          </div>
+          <div className="ml-[25%] mb-28">
+            <div className="flex flex-col font-inter">
               <h1 className="mb-3 text-5xl font-bold text-white">audn</h1>
               <ul>
                 <li>
