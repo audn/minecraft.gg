@@ -20,14 +20,15 @@ function PrimaryButton({
       {isLoading ? (
         <LoadingIcon />
       ) : (
-        icon && (
-          <span className="flex items-center mr-2 text-lg">
-            <i className={icon} />
-          </span>
-        )
+        <>
+          {icon && (
+            <span className="flex items-center mr-2 text-lg">
+              <i className={icon} />
+            </span>
+          )}
+          {title}
+        </>
       )}
-
-      {title}
     </button>
   );
 }
