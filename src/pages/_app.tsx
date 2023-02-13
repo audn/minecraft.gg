@@ -11,9 +11,12 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [cookies, setCookie] = useCookies(['disclaimer']);
+  const current = new Date();
+  const sixMonths = new Date();
+  sixMonths.setMonth(current.getMonth() + 6);
 
   function handleCookie(value: string) {
-    setCookie('disclaimer', value, { path: '/' });
+    setCookie('disclaimer', value, { path: '/', expires: sixMonths });
   }
   const showDisclaimer = cookies['disclaimer'] !== 'yes';
 
