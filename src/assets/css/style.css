@@ -24,7 +24,19 @@ body {
 .bordery {
   position: relative;
 }
-
+.btn-border-twitter {
+  /* prettier-ignore*/
+  box-shadow:  
+    0 -3px 0px 0 #4DB8F0,
+    0 3px 0px 0 #0E83C0,
+    3px 0 0px 0 #4DB8F0,
+    -3px 0 0px 0 #4DB8F0 !important;
+}
+.btn-primary,
+.btn-border-twitter {
+  filter: drop-shadow(5px 5px 0px rgba(29, 161, 242, 0.25)) !important;
+  @apply transition-all duration-200 ease-out;
+}
 .btn-border-green {
   /* prettier-ignore*/
   box-shadow:  
