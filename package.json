@@ -10,6 +10,10 @@
     "build": "next build && next-sitemap",
     "start": "next start"
   },
+  "overrides": {
+    "typescript": "^5.0.0",
+    "@types/node": "^22.0.0"
+  },
   "browserslist": [
     "> 1%",
     "not dead"
@@ -31,7 +35,7 @@
     "react-loading-skeleton": "^3.1.0",
     "react-tooltip": "^4.2.21",
     "skinview3d": "3.0.0-alpha.1",
-    "typescript": "^4.3.2",
+    "typescript": "^6.0.2",
     "zustand": "^4.0.0"
   },
   "devDependencies": {
