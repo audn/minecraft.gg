@@ -8,6 +8,10 @@ module.exports = {
     primary: {
       100: '#329DFA',
     },
+    twitter:{
+    100:"#1DA1F2",
+      150:"#1DA1F2",
+    },
     discord: {
       100: '#7289DA',
       150: '#889DE8',
