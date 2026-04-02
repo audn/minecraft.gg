@@ -200,7 +200,9 @@ function UserProfile({
             </div>
           </div>
         </div>
+
       </div>
+
     </DefaultLayout>
   );
 }
