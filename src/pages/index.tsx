@@ -92,11 +92,11 @@ export default function Home() {
           ) : (
             ''
           )}
-          <Link href="/discord" target="_blank">
+          <Link href="https://x.com/audunhilden" target="_blank">
             <Button.Primary
-              icon="fa-brands fa-discord"
-              title="Join Discord"
-              className="mt-10 !font-normal !text-base !px-2 !py-1 btn-border-discord !bg-brand-discord-100"
+              icon="fa-brands fa-twitter"
+              title="Twitter"
+              className="mt-10 !font-normal !text-base !px-2 !py-1 btn-border-twitter !bg-brand-twitter-100"
             />
           </Link>
         </div>
